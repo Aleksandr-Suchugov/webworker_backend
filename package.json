@@ -1,0 +1,25 @@
+{
+  "name": "back_end",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Aleksandr-Suchugov/webworker_backend.git",
+  "author": "aleksandr-suchugov <alex.coup@yandex.ru>",
+  "license": "MIT",
+  "dependencies": {
+    "@koa/cors": "^4.0.0",
+    "faker": "^6.6.6",
+    "forever": "^4.0.3",
+    "http": "^0.0.1-security",
+    "koa": "^2.13.4",
+    "koa-body": "^6.0.1",
+    "koa-router": "^12.0.0",
+    "koa-slow": "^2.1.0",
+    "koa-static": "^5.0.0",
+    "uuid": "^9.0.0"
+  },
+  "scripts": {
+    "prestart": "yarn install",
+    "start": "forever ./src/js/server.js",
+    "watch": "forever -w ./src/js/server.js"
+  }
+}
