@@ -1,11 +1,11 @@
 const http = require('http');
 const Koa = require('koa');
 const koaBody = require('koa-body')
-const slow = require('koa-slow');
+const slow = require('@faker-js/faker');
 const { v4: uuidv4 } = require('uuid');
 const Router = require("koa-router");
 const cors = require('@koa/cors');
-const faker = require('faker');
+const faker = require('@faker-js/faker');
 
 const app = new Koa();
 
@@ -25,13 +25,19 @@ const data = {
       "description": faker.lorem.words(10),
       "received": `${ new Date().toLocaleDateString() } ${ new Date().toLocaleTimeString() }`,
     },
+    {
+      "id": uuidv4(),
+      "image": faker.image.avatar(),
+      "description": faker.lorem.words(10),
+      "received": `${ new Date().toLocaleDateString() } ${ new Date().toLocaleTimeString() }`,
+    },
   ]
 }
 
 console.log(data);
 
 app.use(slow({
-  delay: 6000,
+  delay: 5000,
 }));
 
 app.use(koaBody({
